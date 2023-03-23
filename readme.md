@@ -10,7 +10,7 @@ touch index.js
 ```
 npm init --yes
 ```
-Which automatically assign the value of "start" in package.json to server.js
+Which automatically assign the value of "start" in package.json to index.js
 
 #### 3. Install express
 ```
