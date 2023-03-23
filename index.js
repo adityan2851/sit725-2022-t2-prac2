@@ -11,13 +11,36 @@ app.get("/",function(req,res){
 });
 
 app.get("/addtwoNumbers",(req,res) =>{
-    var number1 = req.query.number1
-    var number2 = req.query.number2
-
-    var result = parseInt(number1)+parseInt(number2)
+    var result = parseInt(req.query.number1)+parseInt(req.query.number2)
 
     res.json({statuscode:200,data:result,message:"success"})
 })
+
+app.get("/subtwonumbers",(req,res) =>{
+    var result = parseInt(req.query.number1)-parseInt(req.query.number2)
+
+    res.json({statuscode:200,data:result,message:"success"})
+})
+
+app.get("/multiplytwonumbers",(req,res) =>{
+    var result = parseInt(req.query.number1)*parseInt(req.query.number2)
+
+    res.json({statuscode:200,data:result,message:"success"})
+})
+
+app.get("/dividetwonumbers",(req,res) =>{
+
+    console.log(req.query.number2)
+
+    if(req.query.number2 == 0){
+        res.json({message:"Invalid number"})
+    }
+
+    var result = parseInt(req.query.number1)/parseInt(req.query.number2)
+
+    res.json({statuscode:200,data:result,message:"success"})
+})
+
 app.listen(port,()=>{
     console.log("App listening to: "+port)
 })
